@@ -4,6 +4,8 @@ import BlogList from './BlogList';
 
 const Home = () => {
 
+    const [name, setName] = useState('mario')
+
     const [blogs, setBlogs] = useState(
         [
             { title: 'My new website', body: 'lorem ipsum...', author: 'mario', id: 1 },
@@ -17,15 +19,19 @@ const Home = () => {
         setBlogs(newBlogs) 
 
     }
-
+    // Use effect is hook that runs whenever a certian change happens
+    // The second parameter is used to select what dependencies is hook has. In other words, which parts should the hook look at as its trigger.
     useEffect(()=> {
         console.log('UseEffect hook ran!');
-        console.log(blogs);
-    });
+        console.log(name);
+    },[name]);
 
     return ( 
         <div className="home">
             <BlogList blogs={blogs} title='All Blogs!' handleDelete={handleDelete} />
+
+        <button onClick={()=>{setName('Luigi')}}>Change name</button>
+        <p>{name}</p>
 
         </div>
      );
