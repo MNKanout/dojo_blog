@@ -18,7 +18,10 @@ const Home = () => {
 
     }
 
-    useEffect(()=> {console.log({blogs})});
+    useEffect(()=> {
+        console.log('UseEffect hook ran!');
+        console.log(blogs);
+    });
 
     return ( 
         <div className="home">
